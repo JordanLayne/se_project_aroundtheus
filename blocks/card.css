@@ -7,26 +7,37 @@
     width: 282px;
     height: 282px;
   }
+
   .card__description {
-    display: flex;
-    height: 79px;
     background-color: #ffffff;
+    box-sizing: border-box;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     color: black;
-    padding-top: 25px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 25px;
+    margin: 0;
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: "Inter", Arial, sans-serif;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 24px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .card__heading{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Inter-Black", "Arial", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  text-align: center;
+  align-items: center;
+  padding-left: 20px;
+  margin: 0;
   }
   
   .card__like-button {
+    flex-shrink: 0;
+    margin-right: 30px;
     background: transparent url(../images/heart.svg) center no-repeat;
     height: 18px;
     width: 21px;

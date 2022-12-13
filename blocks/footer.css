@@ -10,17 +10,11 @@
   line-height: 17px;
   color: #545454;
 }
-@media screen and (max-width: 480px) {
-  .footer {
-    display: flex;
-    max-width: 282px;
-    height: 14px;
-    width: 100%;
-    font-family: "Inter", Arial, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    color: #545454;
+
+@media screen and (max-width: 480px) { 
+
+  .footer { 
+    display: flex; 
+    max-width: 282px; 
   }
 }
