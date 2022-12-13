@@ -11,10 +11,9 @@
   color: #545454;
 }
 
-@media screen and (max-width: 480px) { 
-
-  .footer { 
+@media screen and (max-width: 480px) {
+  .footer {
     display: flex;
-    max-width: 282px; 
+    max-width: 282px;
   }
 }
