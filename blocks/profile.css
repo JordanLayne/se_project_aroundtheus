@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Inter-Medium";
+  src: url(../fonts/Inter-Medium.woff);
+}
+@font-face {
+  font-family: "Inter-Regular";
+  src: url(../fonts/Inter-Regular.woff);
+}
 .profile {
   display: flex;
   align-items: center;
@@ -9,7 +17,7 @@
   font-weight: 500;
   grid-area: title;
   margin: 0;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Inter-Medium", Arial, sans-serif;
   font-style: normal;
 }
 .profile__image {
@@ -33,7 +41,7 @@
   font-weight: 400;
   grid-area: description;
   margin: 0;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Inter-Regular", Arial, sans-serif;
   font-style: normal;
 }
 .profile__add-button {
@@ -46,9 +54,12 @@
 }
 .profile__add-button:hover {
   border: 3px solid #545454;
-  cursor:pointer;
+  background-image: url(../images/Vector.svg);
+  cursor: pointer;
 }
 .profile__edit-button {
+  align-self: center;
+  margin-left: 18px;
   background: transparent url(../images/edit-button.svg) center no-repeat;
   height: 24px;
   width: 24px;
@@ -57,13 +68,13 @@
 }
 .profile__edit-button:hover {
   opacity: 0.6;
-  cursor:pointer;
+  cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .profile {
     flex-direction: column;
   }
-  .profile__title{
+  .profile__title {
     font-size: 22px;
     line-height: 27px;
   }
@@ -84,7 +95,7 @@
     width: 282px;
     width: 100%;
   }
-  .profile__edit-button{
+  .profile__edit-button {
     width: 18px;
     height: 18px;
   }

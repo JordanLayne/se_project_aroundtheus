@@ -3,3 +3,13 @@
   padding-bottom: 41px;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
+
+@media screen and (max-width: 480px) {
+  .header {
+    padding-top: 28px;
+    padding-left: 27px;
+    padding-bottom: 32px;
+    width: 126px;
+    height: 24px;
+  }
+}

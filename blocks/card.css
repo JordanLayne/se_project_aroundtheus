@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Inter-Black";
+  src: url(../fonts/Inter-Black.woff);
+}
 .card {
   display: flex;
   flex-direction: column;
@@ -29,6 +33,7 @@
   font-family: "Inter-Black", "Arial", sans-serif;
   font-weight: 900;
   font-size: 24px;
+  line-height: 29px;
   text-align: center;
   align-items: center;
   padding-left: 20px;
@@ -42,4 +47,9 @@
   height: 18px;
   width: 21px;
   border: none;
+}
+
+.card__like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
