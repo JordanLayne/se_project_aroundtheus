@@ -14,7 +14,7 @@
 @media screen and (max-width: 480px) { 
 
   .footer { 
-    display: flex; 
+    display: flex;
     max-width: 282px; 
   }
 }
