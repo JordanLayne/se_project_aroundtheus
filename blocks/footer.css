@@ -10,10 +10,14 @@
   line-height: 22px;
   color: #545454;
 }
-
+.footer__copyright {
+  margin: 0;
+}
 @media screen and (max-width: 480px) {
   .footer {
     display: flex;
     max-width: 282px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
