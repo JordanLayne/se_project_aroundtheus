@@ -10,3 +10,10 @@
   margin-top: 51px;
   margin-bottom: 0;
 }
+
+@media screen and (max-width: 480px){
+
+.cards__list{
+margin-top: 0px;
+}
+}
