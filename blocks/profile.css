@@ -14,6 +14,7 @@
   font-family: "Inter", Arial, sans-serif;
   font-weight: 500;
   font-style: normal;
+  margin-right: 18px;
 }
 .profile__image {
   width: 120px;
@@ -56,7 +57,7 @@
 }
 .profile__edit-button {
   align-self: center;
-  margin-left: 18px;
+  
   background: transparent url(../images/edit-button.svg) center no-repeat;
   height: 24px;
   width: 24px;
@@ -84,6 +85,7 @@
     font-size: 22px;
     line-height: 27px;
     max-width: 192px;
+    margin-right: 10px;
   }
   .profile__info {
     display: flex;
