@@ -16,4 +16,4 @@ This is my third project in the Practicum Software Engineer course. This was cre
 
 **Github Pages**
 
-(https://jordanlayne.github.io/se_project_aroundtheus/
+(https://JordanLayne.github.io/se_project_aroundtheus/
