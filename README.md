@@ -4,7 +4,7 @@
 
 This is my third project in the Practicum Software Engineer course. This was created using Html and css.
 
-### Project feutures
+### Project features
 
 - Semantic HTML 5
 - Flexbox and Grid
