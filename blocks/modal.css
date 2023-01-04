@@ -8,7 +8,9 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-
+.modal_closed{
+  display: none;
+}
 
 .modal__container {
   width: 430px;
