@@ -36,16 +36,16 @@
   margin: 0;
 }
 
-.card__like-button {
+.card__button {
   flex-shrink: 0;
   margin-right: 30px;
-  background: transparent url(../images/heart.svg) center no-repeat;
+  background: transparent;
   height: 18px;
   width: 21px;
   border: none;
 }
 
-.card__like-button:hover {
+.card__button:hover {
   opacity: 0.5;
   cursor: pointer;
 }

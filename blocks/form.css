@@ -13,7 +13,7 @@
   line-height: 17px;
   border: none;
 }
-.form__input-name {
+.form__input-title {
   border: none;
   border-bottom: solid;
   margin-bottom: 30px;
@@ -36,6 +36,10 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+}
+.form__save-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 568px) {
