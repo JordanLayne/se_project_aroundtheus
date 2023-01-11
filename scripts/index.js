@@ -37,29 +37,30 @@ const cardList = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 function openModal() {
-  profileModal.classList.remove("modal_closed");
+  profileModal.classList.add("modal_opened");
 }
+
 btnEdit.addEventListener("click", openModal);
 
 const profileModalCloseButton = profileModal.querySelector("#btn-close");
 
 function closeModal() {
-  profileModal.classList.add("modal_closed");
+  profileModal.classList.remove("modal_opened");
 }
 profileModalCloseButton.addEventListener("click", closeModal);
 
-function formSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
   const profileEntry = inputName.value;
-  const JobEntry = inputJob.value;
+  const jobEntry = inputJob.value;
   profileName.textContent = profileEntry;
-  profileJob.textContent = JobEntry;
+  profileJob.textContent = jobEntry;
 
   closeModal();
 }
 
-btnSubmit.addEventListener("click", formSubmit);
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
