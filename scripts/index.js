@@ -27,7 +27,7 @@ const initialCards = [
 
 const btnEdit = document.querySelector("#btn-edit");
 const profileModal = document.querySelector(".modal");
-const profileForm = document.querySelector('.form')
+const profileForm = document.querySelector(".form");
 const btnSubmit = document.querySelector("#btn-submit");
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__description");
@@ -51,15 +51,15 @@ profileModalCloseButton.addEventListener("click", closeModal);
 function formSubmit(evt) {
   evt.preventDefault();
 
- const profileEntry = inputName.value;
+  const profileEntry = inputName.value;
   const JobEntry = inputJob.value;
   profileName.textContent = profileEntry;
   profileJob.textContent = JobEntry;
 
-  closeModal()
+  closeModal();
 }
 
-btnSubmit.addEventListener('click', formSubmit)
+btnSubmit.addEventListener("click", formSubmit);
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -68,10 +68,10 @@ function getCardElement(cardData) {
   cardImage.alt = cardData.name;
   cardImage.src = cardData.link;
   cardHeading.textContent = cardData.name;
-  return cardElement;}
+  return cardElement;
+}
 
-  initialCards.forEach((cardData) => {
-    const cardElement = getCardElement(cardData);
-    cardList.prepend(cardElement);
-  });
- 
+initialCards.forEach((cardData) => {
+  const cardElement = getCardElement(cardData);
+  cardList.prepend(cardElement);
+});
