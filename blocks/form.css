@@ -11,17 +11,23 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+  padding: 0;
+  margin: 0;
   border: none;
 }
 .form__input-title {
   border: none;
-  border-bottom: 1px solid rgb(0, 0, 0, .2);
+  margin-left: 36px;
+  margin-right: 36px;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
   margin-bottom: 30px;
   padding-bottom: 13px;
 }
 .form__input-description {
   border: none;
-  border-bottom: 1px solid rgb(0, 0, 0, .2);
+  margin-left: 36px;
+  margin-right: 36px;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
   margin-bottom: 48px;
   padding-bottom: 13px;
 }
@@ -45,9 +51,16 @@
 }
 
 @media screen and (max-width: 568px) {
-    .form__save-button{
-        width: 238px;
-        height: 46px;
-    }
+  .form__save-button {
+    width: 238px;
+    height: 46px;
+  }
+  .form__input-description {
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+  .form__input-title {
+    margin-left: 22px;
+    margin-right: 22px;
+  }
 }
-

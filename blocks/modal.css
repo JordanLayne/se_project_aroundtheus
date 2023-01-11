@@ -11,7 +11,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal_opened{
+.modal_opened {
   display: flex;
 }
 
@@ -42,10 +42,9 @@
   background-position: center;
   background-image: url(../images/close-icon.svg);
   position: absolute;
-  bottom: calc(100% + 3px);
-  left: calc(100% + 3px);
+  top: -40px;
+  left: 430px;
 }
-
 .modal__close-button:hover {
   opacity: 0.6;
   cursor: pointer;
@@ -55,19 +54,19 @@
   .modal__container {
     width: 282px;
     height: 340px;
-    
   }
 
   .modal__heading {
     margin: 25px 22px 75px 22px;
-font-weight: 900;
-font-size: 18px;
-line-height: 22px;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .modal__close-button {
     width: 26px;
     height: 26px;
-  
+    top: -50px;
+    left: 253px;
   }
 }
