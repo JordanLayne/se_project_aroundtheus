@@ -68,7 +68,7 @@ const profileModalCloseButton = profileModal.querySelector("#modal-btn-close");
 profileModalCloseButton.addEventListener("click", function () {
   closeModal(profileModal);
 });
-const cardsModalCloseButton = cardsModal.querySelector("#modal-btn-close");
+const cardsModalCloseButton = cardsModal.querySelector("#modal-card-close");
 cardsModalCloseButton.addEventListener("click", function () {
   closeModal(cardsModal);
 });
