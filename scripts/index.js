@@ -64,11 +64,11 @@ btnEdit.addEventListener("click", () => {
   openModal(profileModal);
 });
 
-const profileModalCloseButton = profileModal.querySelector("#btn-close");
+const profileModalCloseButton = profileModal.querySelector("#modal-btn-close");
 profileModalCloseButton.addEventListener("click", function () {
   closeModal(profileModal);
 });
-const cardsModalCloseButton = cardsModal.querySelector("#btn-close");
+const cardsModalCloseButton = cardsModal.querySelector("#modal-btn-close");
 cardsModalCloseButton.addEventListener("click", function () {
   closeModal(cardsModal);
 });
