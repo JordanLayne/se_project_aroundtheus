@@ -73,7 +73,6 @@ cardsModalCloseButton.addEventListener("click", function () {
   closeModal(cardsModal);
 });
 
-profileModalCloseButton.addEventListener("click", closeModal);
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
