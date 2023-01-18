@@ -68,7 +68,7 @@
                 <form class="form" id="cards-form">
                   <fieldset class="form__fieldset">
                     <input
-                    name="title"
+                      name="name"
                       class="form__input-title"
                       type="text"
                       placeholder="Title"
@@ -89,7 +89,7 @@
                   </button>
                 </form>
                 <button
-                  id="modal-card-close"
+                  id="modal-btn-close"
                   class="modal__close-button"
                   type="button"
                 ></button>
@@ -97,7 +97,11 @@
             </div>
             <section class="modal" id="image-modal">
               <div class="modal__image-container">
-                <button class="modal__image-close-button" type="button">
+                <button
+                  class="modal__image-close-button"
+                  id="modal-btn-close"
+                  type="button"
+                >
                   <img
                     src="./images/close-icon.svg"
                     alt="close"
@@ -110,26 +114,34 @@
             </section>
             <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button" id="add-button"></button>
+          <button
+            class="profile__add-button"
+            type="button"
+            id="add-button"
+          ></button>
         </section>
         <section class="cards">
-        <ul class="cards__list page__section">
-          <template id="card-template">
+          <ul class="cards__list page__section">
+            <template id="card-template">
               <li class="card" id="card-list">
-                <div><button class="card__remove"  type="button">
-                  <img src="./images/Trash.svg" alt="trash icon" class="card__remove-button" />
-                </button>
+                <div>
+                  <button class="card__remove" type="button">
+                    <img
+                      src="./images/Trash.svg"
+                      alt="trash icon"
+                      class="card__remove-button"
+                    />
+                  </button>
                   <img src=" " alt="" class="card__image" />
                   <div class="card__description">
                     <h2 class="card__heading"></h2>
-                    <button class="card__like-button" type="button">
-                    </button>
+                    <button class="card__like-button" type="button"></button>
                   </div>
                 </div>
               </li>
-          </template>
-        </ul>
-          </section>
+            </template>
+          </ul>
+        </section>
         <!--
             <li class="card">
               <img
