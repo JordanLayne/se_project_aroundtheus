@@ -63,7 +63,7 @@ function openModal(modal) {
 btnEdit.addEventListener("click", () => {
   openModal(profileModal);
 });
-const closeButtons = document.querySelectorAll('#modal-btn-close');
+const closeButtons = document.querySelectorAll('.modal-btn-close');
 
 closeButtons.forEach((button) => {
   const popup = button.closest('.modal');
