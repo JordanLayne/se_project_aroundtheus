@@ -62,6 +62,8 @@ function openModal(modal) {
 
 btnEdit.addEventListener("click", () => {
   openModal(profileModal);
+  inputName.value = profileName.textContent
+  inputJob.value = profileJob.textContent
 });
 const closeButtons = document.querySelectorAll('.modal-btn-close');
 
