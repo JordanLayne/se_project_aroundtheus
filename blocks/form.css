@@ -5,62 +5,122 @@
 }
 .form__fieldset {
   display: flex;
-  flex-flow: column;
-  justify-content: center;
-  font-family: "Inter", "Arial", sans-serif;
+  flex-direction: column;
+  border: none;
+  padding: 0;
+}
+.form__input {
+  width: 358px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+  line-height: 17px;
+  margin: auto;
+  height: 13px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  align-self: center;
+  border-color: rgba(0, 0, 0, 0.2);
+  padding-bottom: 13px;
+  
+}
+
+.form__label-name {
+  width: 358px;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  padding: 0;
-  margin: 0;
-  border: none;
+  align-self: center;
+  margin-top: 50px;
 }
-.form__input-title {
-  border: none;
-  margin-left: 36px;
-  margin-right: 36px;
-  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
-  margin-bottom: 30px;
-  padding-bottom: 13px;
+.form__label-description {
+  width: 358px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  align-self: center;
+  margin-top: 29px;
 }
-.form__input-description {
-  border: none;
-  margin-left: 36px;
-  margin-right: 36px;
-  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
-  margin-bottom: 48px;
-  padding-bottom: 13px;
-}
-
 .form__save-button {
-  background: #000000;
-  color: white;
-  margin: 0 auto;
-  border-radius: 2px;
   width: 358px;
   height: 50px;
-  font-family: "Inter", "Arial", sans-serif;
+  background: #000000;
+  border-radius: 2px;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  color: #ffffff;
+  border-color: rgba(0, 0, 0, 1);
+  margin: auto;
+  margin-top: 48px;
 }
 .form__save-button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
+.form__save-button_disabled {
+  box-sizing: border-box;
+  width: 358px;
+  height: 50.15px;
+  opacity: 0.2;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  background: #e5e5e5;
+  color: rgba(0, 0, 0, 1);
+}
+.popup__input_type_error {
+  width: 358px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+  line-height: 17px;
+  margin: auto;
+  height: 13px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  align-self: center;
+  border-color: rgba(255, 0, 0, 1);
+  padding: 0;
+  margin: 0px;
+}
+.popup__error_visible {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: red;
+  width: 358px;
+  height: 0px;
+  margin-left: 32px;
+}
+
 
 @media screen and (max-width: 568px) {
   .form__save-button {
     width: 238px;
-    height: 46px;
   }
-  .form__input-description {
-    margin-left: 22px;
-    margin-right: 22px;
-  }
-  .form__input-title {
-    margin-left: 22px;
-    margin-right: 22px;
-  }
+.popup__error_visible{
+  align-self: flex-start;
+    width: 238px;
+    margin-left:22px;
 }
+  .form__input {
+    align-self: flex-start;
+    width: 238px;
+    margin-left:22px;
+  }
+  }

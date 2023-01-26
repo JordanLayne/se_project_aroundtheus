@@ -34,18 +34,27 @@
             <div class="modal modal_closed" id="edit-modal">
               <div class="modal__container">
                 <h1 class="modal__title">Edit profile</h1>
-                <form class="form" id="form-profile">
+                <form class="form" id="form-profile" novalidate>
                   <fieldset class="form__fieldset">
+                    <label class="form__label-name"></label>
                     <input
-                      class="form__input-title"
+                      class="form__input form__input-title"
                       type="text"
-                      placeholder="Name"
+                      id="owner-name"
+                      placeholder="Name" maxlength="40" minlength="2" required
                     />
+                    <span class="popup__error" id="owner-name-error"></span>
+                    <label class="form__label-description"></label>
                     <input
-                      class="form__input-description"
+                      class="form__input form__input-description"
                       type="text"
                       placeholder="Description"
+                      id="owner-description"
+                      maxlength="200"
+                      minlength="2"
+                      required
                     />
+                    <span class="popup__error" id="owner-description-error"></span>
                   </fieldset>
                   <button
                     class="form__save-button"
@@ -67,19 +76,29 @@
                 <h1 class="modal__title">New Place</h1>
                 <form class="form" id="cards-form">
                   <fieldset class="form__fieldset">
+                    <label class="form__label-name"></label>
                     <input
+                      id="card-name"
                       name="name"
-                      class="form__input-title"
+                      class="form__input"
                       type="text"
                       placeholder="Title"
+                      minlength="1"
+                      maxlength="'30"
+                      required
                     />
+                    <span class="popup__error" id="card-name-error"></span>
+                    <label class="form__label-description"></label>
                     <input
-                      class="form__input-description"
-                      type="text"
+                      class="form__input"
+                      type="url"
                       placeholder="Image Link"
                       name="link"
+                      id="card-link"
+                      required
                     />
                   </fieldset>
+                  <span class="popup__error" id="card-link-error"></span>
                   <button
                     class="form__save-button"
                     id="cards-submit"
@@ -205,5 +224,6 @@
       </footer>
     </div>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>

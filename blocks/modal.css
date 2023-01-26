@@ -22,6 +22,7 @@
   transition: visibility 0s, opacity 0.5s linear;
 }
 
+
 .modal__container {
   position: relative;
   background-color: #fff;
@@ -29,15 +30,19 @@
   border-radius: 10px;
   width: 430px;
   height: 330px;
+
 }
 .modal__title {
-  font-family: "Inter", "Arial", sans-serif;
+  width: 330px;
+  font-family: "Inter";
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
   color: #000000;
-  margin: 34px 64px 54px 36px;
+  padding-left: 36px;
+  padding-top: 34px;
+  margin: 0;
 }
 .modal__image-container {
   margin: auto;
@@ -94,6 +99,7 @@
   .modal__container {
     width: 282px;
     height: 340px;
+    
   }
 
   .modal__heading {
@@ -102,7 +108,7 @@
     font-size: 18px;
     line-height: 22px;
   }
-
+  
   .modal__close-button {
     width: 26px;
     height: 26px;
