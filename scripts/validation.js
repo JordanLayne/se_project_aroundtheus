@@ -1,4 +1,8 @@
-function showInputError(formElement,inputElements,{ inputErrorClass, errorClass }) {
+function showInputError(
+  formElement,
+  inputElements,
+  { inputErrorClass, errorClass }
+) {
   const errorMessageElement = formElement.querySelector(
     "#" + inputElements.id + "-error"
   );
@@ -7,7 +11,11 @@ function showInputError(formElement,inputElements,{ inputErrorClass, errorClass 
   errorMessageElement.classList.add(errorClass);
 }
 
-function hideInputError( formElement,inputElements,{ inputErrorClass, errorClass }) {
+function hideInputError(
+  formElement,
+  inputElements,
+  { inputErrorClass, errorClass }
+) {
   const errorMessageElement = formElement.querySelector(
     "#" + inputElements.id + "-error"
   );
@@ -18,31 +26,32 @@ function hideInputError( formElement,inputElements,{ inputErrorClass, errorClass
 
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
-    return showInputError(formElement, inputElement, options);
+    showInputError(formElement, inputElement, options);
+  } else {
+    hideInputError(formElement, inputElement, options);
   }
-  hideInputError(formElement, inputElement, options);
 }
-
-function toggleButtonState(inputElements,submitButton,{ inactiveButtonClass }) {
-  let foundInvalid = false;
-  inputElements.forEach((inputEl) => {
-    if (!inputEl.validity.valid) {
-      foundInvalid = true;
-    }
-  });
-
-  if (foundInvalid) {submitButton.classList.add(inactiveButtonClass);
-    return (submitButton.disabled = true);
-  }
+function hasInvalidInput(inputList) {
+return !inputList.every((inputElement) => inputElement.validity.valid)
+}
+function toggleButtonState(
+  inputElements,
+  submitButton,
+  { inactiveButtonClass }){
+ if (hasInvalidInput(inputElements)) {
+  submitButton.classList.add(inactiveButtonClass)
+  submitButton.disabled = true
+}else
+  {
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
 }
-
+  }
 function setEventListeners(formElement, options) {
   const { inputSelector, submitButtonSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   const submitButton = formElement.querySelector(submitButtonSelector);
-  submitButton.disabled = true;
+
   toggleButtonState(inputElements, submitButton, options);
   formElement.addEventListener("reset", () => {
     setTimeout(() => {

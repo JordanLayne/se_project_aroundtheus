@@ -54,38 +54,22 @@ const modalCardDescription = document.querySelector(
 );
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick)
   document.removeEventListener("keydown", closeByEscape);
 }
 
 function openModal(modal) {
+  modal.addEventListener("mousedown", closeModalOnRemoteClick)
+
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeByEscape);
 }
-imageModal.addEventListener("mousedown", (evt) => {
-  if (
-    evt.target.classList.contains("modal") ||
-    evt.target.classList.contains("modal_opened")
-  ) {
-    closeModal(imageModal);
+function closeModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget || evt.target.classList.contains("modal_opened") ) { 
+    closeModal(evt.target)
   }
+}
 
-});
-profileModal.addEventListener("mousedown", (evt) => {
-  if (
-    evt.target.classList.contains("modal") ||
-    evt.target.classList.contains("modal_opened")
-  ) {
-    closeModal(profileModal);
-  }
-});
-cardsModal.addEventListener("mousedown", (evt) => {
-  if (
-    evt.target.classList.contains("modal") ||
-    evt.target.classList.contains("modal_opened")
-  ) {
-    closeModal(cardsModal);
-  }
-});
 function closeByEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
