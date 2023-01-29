@@ -54,39 +54,49 @@ const modalCardDescription = document.querySelector(
 );
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick)
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
   document.removeEventListener("keydown", closeByEscape);
 }
 
 function openModal(modal) {
-  modal.addEventListener("mousedown", closeModalOnRemoteClick)
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
 
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeByEscape);
 }
 function closeModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget || evt.target.classList.contains("modal_opened") ) { 
-    closeModal(evt.target)
+  if (
+    evt.target === evt.currentTarget ||
+    evt.target.classList.contains("modal_opened")
+  ) {
+    closeModal(evt.target);
   }
 }
 
 function closeByEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
+
     closeModal(openedModal);
   }
 }
+function fillProfileForm() {
+  inputName.value = profileName.textContent;
 
-btnEdit.addEventListener("click", () => {
+  inputJob.value = profileJob.textContent;
+}
+btnEdit.addEventListener("click", openEditProfileModal);
+
+function openEditProfileModal() {
+  fillProfileForm();
   openModal(profileModal);
-  inputName.value = profileName.textContent
-  inputJob.value = profileJob.textContent
-});
-const closeButtons = document.querySelectorAll('.modal-btn-close');
+}
+
+const closeButtons = document.querySelectorAll(".modal-btn-close");
 
 closeButtons.forEach((button) => {
-  const popup = button.closest('.modal');
-  button.addEventListener('click', () => closeModal(popup));
+  const popup = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(popup));
 });
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
@@ -114,7 +124,7 @@ function handleLikeButton(evt) {
 
 function createCard(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__image"); 
+  const cardImage = cardElement.querySelector(".card__image");
   const cardHeading = cardElement.querySelector(".card__heading");
   const removeButton = cardElement.querySelector(".card__remove");
   const likeButton = cardElement.querySelector(".card__like-button");
@@ -130,12 +140,11 @@ function createCard(cardData) {
 
   likeButton.addEventListener("click", handleLikeButton);
   removeButton.addEventListener("click", handleDeleteCard);
-  return cardElement
- 
+  return cardElement;
 }
 
 function renderCard(cardData) {
-  const cardElement =  createCard(cardData)
+  const cardElement = createCard(cardData);
   cardList.prepend(cardElement);
 }
 
@@ -144,10 +153,8 @@ cardsForm.addEventListener("submit", (e) => {
   const name = e.target.name.value;
   const link = e.target.link.value;
   const newCard = renderCard({ name: name, link: link });
-  closeModal(cardsModal)
-  e.target.reset()
+  closeModal(cardsModal);
+  e.target.reset();
 });
 
 initialCards.forEach(renderCard);
-
- 
