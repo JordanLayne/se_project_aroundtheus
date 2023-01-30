@@ -66,8 +66,7 @@ function openModal(modal) {
 }
 function closeModalOnRemoteClick(evt) {
   if (
-    evt.target === evt.currentTarget ||
-    evt.target.classList.contains("modal_opened")
+    evt.target === evt.currentTarget
   ) {
     closeModal(evt.target);
   }
