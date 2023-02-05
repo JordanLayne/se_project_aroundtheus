@@ -1,3 +1,6 @@
+import Card from "../scripts/card.js";
+import FormValidator from "../scripts/FormValidator.js";
+import { closeModal, closeByEscape, openModal } from "../scripts/utils.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -52,58 +55,16 @@ const cardPreviewImage = document.querySelector(".modal__preview-image");
 const modalCardDescription = document.querySelector(
   ".modal__image-description"
 );
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-  document.removeEventListener("keydown", closeByEscape);
-}
-
-function openModal(modal) {
-  modal.addEventListener("mousedown", closeModalOnRemoteClick);
-
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeByEscape);
-}
-function closeModalOnRemoteClick(evt) {
-  if (
-    evt.target === evt.currentTarget
-  ) {
-    closeModal(evt.target);
-  }
-}
-
-function closeByEscape(evt) {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-
-    closeModal(openedModal);
-  }
-}
-function fillProfileForm() {
+const cardSelector = "#card-template";
+btnEdit.addEventListener("click", (evt) => {
   inputName.value = profileName.textContent;
-
   inputJob.value = profileJob.textContent;
-}
-btnEdit.addEventListener("click", openEditProfileModal);
-
-function openEditProfileModal() {
-  fillProfileForm();
   openModal(profileModal);
-}
-
-const closeButtons = document.querySelectorAll(".modal-btn-close");
-
-closeButtons.forEach((button) => {
-  const popup = button.closest(".modal");
-  button.addEventListener("click", () => closeModal(popup));
 });
-
-profileForm.addEventListener("submit", handleProfileFormSubmit);
-
 cardAddButton.addEventListener("click", () => {
   openModal(cardsModal);
 });
-
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   const profileEntry = inputName.value;
@@ -112,48 +73,38 @@ function handleProfileFormSubmit(evt) {
   profileJob.textContent = jobEntry;
   closeModal(profileModal);
 }
-
-function handleDeleteCard(evt) {
-  evt.target.closest(".card").remove();
-}
-
-function handleLikeButton(evt) {
-  evt.target.classList.toggle("card__like-button_is-active");
-}
-
-function createCard(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__image");
-  const cardHeading = cardElement.querySelector(".card__heading");
-  const removeButton = cardElement.querySelector(".card__remove");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  cardImage.alt = cardData.name;
-  cardImage.src = cardData.link;
-  cardHeading.textContent = cardData.name;
-  cardImage.addEventListener("click", () => {
-    modalCardDescription.textContent = cardData.name;
-    cardPreviewImage.src = cardData.link;
-    cardPreviewImage.alt = cardData.name;
-    openModal(imageModal);
-  });
-
-  likeButton.addEventListener("click", handleLikeButton);
-  removeButton.addEventListener("click", handleDeleteCard);
-  return cardElement;
-}
-
-function renderCard(cardData) {
-  const cardElement = createCard(cardData);
-  cardList.prepend(cardElement);
-}
-
 cardsForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = e.target.name.value;
   const link = e.target.link.value;
   const newCard = renderCard({ name: name, link: link });
   closeModal(cardsModal);
+
   e.target.reset();
 });
-
+const closeButtons = document.querySelectorAll(".modal-btn-close");
+closeButtons.forEach((button) => {
+  const popup = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(popup));
+});
 initialCards.forEach(renderCard);
+function renderCard(cardData) {
+  const card = new Card(cardData, "#card-template");
+  document.querySelector(".cards__list").prepend(card.getCardView());
+}
+const config = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__save-button",
+  inactiveButtonClass: "form__save-button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+const editFormElement = profileModal.querySelector(".form");
+const cardFormElement = cardsModal.querySelector(".form");
+const editFormValidator = new FormValidator(config, editFormElement);
+const cardFormValidator = new FormValidator(config, cardFormElement);
+
+editFormValidator.enableValidation();
+cardFormValidator.enableValidation();
