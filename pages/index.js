@@ -1,6 +1,6 @@
 import Card from "../scripts/Card.js";
 import FormValidator from "../scripts/FormValidator.js";
-import { closeModal, closeByEscape, openModal } from "../scripts/utils.js";
+import { closeModal, closeByEscape, openModal } from "../scripts/Utils.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
