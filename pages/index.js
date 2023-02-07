@@ -1,4 +1,4 @@
-import Card from "../scripts/card.js";
+import Card from "../scripts/Card.js";
 import FormValidator from "../scripts/FormValidator.js";
 import { closeModal, closeByEscape, openModal } from "../scripts/utils.js";
 const initialCards = [
@@ -36,7 +36,7 @@ const initialCards = [
   },
 ];
 const placesList = document.querySelector("#card-list");
-const btnEdit = document.querySelector("#btn-edit");
+const editProfilePopup = document.querySelector("#btn-edit");
 const profileModal = document.querySelector("#edit-modal");
 const profileForm = document.querySelector("#form-profile");
 const profileName = document.querySelector(".profile__title");
@@ -56,9 +56,12 @@ const modalCardDescription = document.querySelector(
   ".modal__image-description"
 );
 const cardSelector = "#card-template";
-btnEdit.addEventListener("click", (evt) => {
+function fillProfileForm() {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
+}
+editProfilePopup.addEventListener("click", (evt) => {
+  fillProfileForm()
   openModal(profileModal);
 });
 cardAddButton.addEventListener("click", () => {

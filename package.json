@@ -1,0 +1,19 @@
+{
+  "name": "se_project_aroundtheus",
+  "version": "1.0.0",
+  "description": "**Intro**",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JordanLayne/se_project_aroundtheus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JordanLayne/se_project_aroundtheus/issues"
+  },
+  "homepage": "https://github.com/JordanLayne/se_project_aroundtheus#readme"
+}
