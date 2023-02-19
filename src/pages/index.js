@@ -1,4 +1,5 @@
 import Card from "../scripts/Card.js";
+import "./index.css";
 import {
   profileForm,
   profileJob,

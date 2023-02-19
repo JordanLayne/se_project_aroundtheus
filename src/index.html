@@ -5,15 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the World</title>
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="<%= require('./favicon.ico')%>" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
           class="header__logo"
-          src="./images/logo.svg"
+          src="<%= require('./images/logo.svg')%>"
           alt="Icon that says around the US"
         />
       </header>
@@ -21,7 +20,7 @@
         <section class="profile page__section">
           <img
             class="profile__image"
-            src="./images/jacques-cousteau.svg"
+            src="<%= require('./images/jacques-cousteau.svg')%>"
             alt="Picture of Jacques Cousteau"
           />
           <div class="profile__info">
@@ -133,7 +132,7 @@
                   type="button"
                 >
                   <img
-                    src="./images/close-icon.svg"
+                    src="<%= require('./images/close-icon.svg')%>"
                     alt="close"
                     class="modal__close-button-image"
                     id="image-modal-close"
@@ -160,7 +159,7 @@
 
               <button class="card__remove" type="button">
                 <img
-                  src="./images/Trash.svg"
+                  src="<%= require('./images/Trash.svg')%>"
                   alt="trash icon"
                   class="card__remove-button"
                 />
@@ -173,6 +172,5 @@
         <p class="footer__copyright">&copy;2022 Around The U.S.</p>
       </footer>
     </div>
-    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
