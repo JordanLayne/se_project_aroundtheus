@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the World</title>
-    <link rel="icon" type="image/x-icon" href="<%= require('./favicon.ico')%>" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="<%= require('./favicon.ico')%>"
+    />
   </head>
   <body class="page">
     <div class="page__content">
@@ -34,35 +38,31 @@
               <div class="modal__container">
                 <h1 class="modal__title">Edit profile</h1>
                 <form class="form" id="form-profile" novalidate>
-                  <fieldset class="form__fieldset">
-                    <label class="form__label-name"></label>
-                    <input
-                      class="form__input form__input-title"
-                      type="text"
-                      id="owner-name"
-                      placeholder="Name"
-                      name="nameInput"
-                      maxlength="40"
-                      minlength="2"
-                      required
-                    />
-                    <span class="form__error" id="owner-name-error"></span>
-                    <label class="form__label-description"></label>
-                    <input
-                      class="form__input form__input-description"
-                      type="text"
-                      placeholder="Description"
-                      id="owner-description"
-                      maxlength="200"
-                      minlength="2"
-                      name="descriptionInput"
-                      required
-                    />
-                    <span
-                      class="form__error"
-                      id="owner-description-error"
-                    ></span>
-                  
+                  <label class="form__label-name"></label>
+                  <input
+                    class="form__input form__input-title"
+                    type="text"
+                    id="owner-name"
+                    placeholder="Name"
+                    name="nameInput"
+                    maxlength="40"
+                    minlength="2"
+                    required
+                  />
+                  <span class="form__error" id="owner-name-error"></span>
+                  <label class="form__label-description"></label>
+                  <input
+                    class="form__input form__input-description"
+                    type="text"
+                    placeholder="Description"
+                    id="owner-description"
+                    maxlength="200"
+                    minlength="2"
+                    name="descriptionInput"
+                    required
+                  />
+                  <span class="form__error" id="owner-description-error"></span>
+
                   <button
                     class="form__save-button"
                     id="btn-submit"
@@ -77,36 +77,34 @@
                   type="button"
                   id="edit-modal-close"
                 ></button>
-              </fieldset>
               </div>
             </div>
             <div class="modal modal_closed" id="cards-modal">
               <div class="modal__container">
                 <h1 class="modal__title">New Place</h1>
                 <form class="form" id="cards-form">
-                  <fieldset class="form__fieldset">
-                    <label class="form__label-name"></label>
-                    <input
-                      id="card-name"
-                      name="title"
-                      class="form__input"
-                      type="text"
-                      placeholder="Title"
-                      minlength="1"
-                      maxlength="'30"
-                      required
-                    />
-                    <span class="form__error" id="card-name-error"></span>
-                    <label class="form__label-description"></label>
-                    <input
-                      class="form__input"
-                      type="url"
-                      placeholder="Image Link"
-                      name="imageLink"
-                      id="card-link"
-                      required
-                    />
-                  
+                  <label class="form__label-name"></label>
+                  <input
+                    id="card-name"
+                    name="title"
+                    class="form__input"
+                    type="text"
+                    placeholder="Title"
+                    minlength="1"
+                    maxlength="'30"
+                    required
+                  />
+                  <span class="form__error" id="card-name-error"></span>
+                  <label class="form__label-description"></label>
+                  <input
+                    class="form__input"
+                    type="url"
+                    placeholder="Image Link"
+                    name="imageLink"
+                    id="card-link"
+                    required
+                  />
+
                   <span class="form__error" id="card-link-error"></span>
                   <button
                     class="form__save-button"
@@ -122,7 +120,6 @@
                   type="button"
                   id="cards-modal-close"
                 ></button>
-              </fieldset>
               </div>
             </div>
             <section class="modal" id="image-modal">
@@ -138,7 +135,7 @@
                     id="image-modal-close"
                   />
                 </button>
-                <img class="modal__preview-image" src=" " alt=" "/>
+                <img class="modal__preview-image" src=" " alt=" " />
                 <h3 class="modal__image-description"></h3>
               </div>
             </section>
