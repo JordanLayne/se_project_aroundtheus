@@ -1,4 +1,4 @@
-import Card from "../scripts/Card.js";
+import Card from "../scripts/components/Card.js";
 import "./index.css";
 import {
   profileForm,
@@ -22,14 +22,12 @@ import {
   cards,
   initialCards,
   selectors,
-  submitButton,
-} from "../scripts/constants.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import Section from "../scripts/Section.js";
-import UserInfo from "../scripts/UserInfo.js";
-import { closeModal, closeByEscape, openModal } from "../scripts/Utils.js";
-import FormValidator from "../scripts/FormValidator.js";
+} from "../scripts/utils/constants.js";
+import PopupWithImage from "../scripts/components/PopupWithImage.js";
+import PopupWithForm from "../scripts/components/PopupWithForm.js";
+import Section from "../scripts/components/Section.js";
+import UserInfo from "../scripts/components/UserInfo.js";
+import FormValidator from "../scripts/components/FormValidator.js";
 const editFormElement = profileModal.querySelector(".form");
 const cardFormElement = cardsModal.querySelector(".form");
 const editFormValidator = new FormValidator(config, editFormElement);
@@ -39,6 +37,7 @@ const user = new UserInfo({ name: profileName, job: profileJob });
 
 const editPopupForm = new PopupWithForm(
   selectors.profileModal,
+
   (inputValues) => {
     user.setUserInfo(inputValues);
   }
@@ -54,7 +53,7 @@ const addPopupForm = new PopupWithForm(selectors.cardsModal, (inputValues) => {
 addPopupForm.setEventListeners();
 
 editProfilePopup.addEventListener("click", () => {
-  openModal(profileModal);
+  editPopupForm.open();
   const info = user.getUserInfo();
   inputName.value = info.name;
   inputJob.value = info.job;
@@ -62,7 +61,7 @@ editProfilePopup.addEventListener("click", () => {
 });
 
 cardAddButton.addEventListener("click", () => {
-  openModal(cardsModal);
+  addPopupForm.open();
   cardFormValidator.toggleButtonState();
 });
 
@@ -80,7 +79,6 @@ const cardSection = new Section(
       );
       const cardElement = card.generateCard();
 
-      console.log(cardElement);
       return cardElement;
     },
   },

@@ -14,15 +14,14 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate();
-    this._setEventHandlers();
 
     this._cardImage = this._element.querySelector(".card__image");
-    this._cardTitle = this._element.querySelector(".card__description");
+    this._cardTitle = this._element.querySelector(".card__description"); 
 
     this._cardImage.src = this._image;
     this._cardImage.alt = `Photo of ${this._link}`;
     this._cardTitle.textContent = this._title;
-
+    this._setEventHandlers();
     return this._element;
   }
 
@@ -31,15 +30,14 @@ class Card {
   }
 
   _handleDeleteButton(evt) {
-    evt.target.closest(".card").remove();
+    this._element.remove();
+    this._element = null;
   }
 
   _setEventHandlers() {
-    this._element
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
-        this._handleImageClick({ title: this._title, image: this._image });
-      });
+    this._cardImage.addEventListener("click", () => {
+      this._handleImageClick({ title: this._title, image: this._image });
+    });
 
     this._element
       .querySelector(".card__like-button")

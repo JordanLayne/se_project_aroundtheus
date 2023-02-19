@@ -1,16 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Around the World</title>
+
     <link
       rel="icon"
       type="image/x-icon"
       href="<%= require('./favicon.ico')%>"
     />
   </head>
+
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
@@ -20,6 +26,7 @@
           alt="Icon that says around the US"
         />
       </header>
+
       <main class="content">
         <section class="profile page__section">
           <img
@@ -27,18 +34,23 @@
             src="<%= require('./images/jacques-cousteau.svg')%>"
             alt="Picture of Jacques Cousteau"
           />
+
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
+
             <button
               id="btn-edit"
               class="profile__edit-button"
               type="button"
             ></button>
+
             <div class="modal modal_closed" id="edit-modal">
               <div class="modal__container">
                 <h1 class="modal__title">Edit profile</h1>
+
                 <form class="form" id="form-profile" novalidate>
                   <label class="form__label-name"></label>
+
                   <input
                     class="form__input form__input-title"
                     type="text"
@@ -49,8 +61,11 @@
                     minlength="2"
                     required
                   />
+
                   <span class="form__error" id="owner-name-error"></span>
+
                   <label class="form__label-description"></label>
+
                   <input
                     class="form__input form__input-description"
                     type="text"
@@ -61,6 +76,7 @@
                     name="descriptionInput"
                     required
                   />
+
                   <span class="form__error" id="owner-description-error"></span>
 
                   <button
@@ -72,6 +88,7 @@
                     Save
                   </button>
                 </form>
+
                 <button
                   class="modal__close-button modal-btn-close"
                   type="button"
@@ -79,11 +96,14 @@
                 ></button>
               </div>
             </div>
+
             <div class="modal modal_closed" id="cards-modal">
               <div class="modal__container">
                 <h1 class="modal__title">New Place</h1>
+
                 <form class="form" id="cards-form">
                   <label class="form__label-name"></label>
+
                   <input
                     id="card-name"
                     name="title"
@@ -94,8 +114,11 @@
                     maxlength="'30"
                     required
                   />
+
                   <span class="form__error" id="card-name-error"></span>
+
                   <label class="form__label-description"></label>
+
                   <input
                     class="form__input"
                     type="url"
@@ -106,6 +129,7 @@
                   />
 
                   <span class="form__error" id="card-link-error"></span>
+
                   <button
                     class="form__save-button"
                     id="cards-submit"
@@ -115,6 +139,7 @@
                     Save
                   </button>
                 </form>
+
                 <button
                   class="modal__close-button modal-btn-close"
                   type="button"
@@ -122,6 +147,7 @@
                 ></button>
               </div>
             </div>
+
             <section class="modal" id="image-modal">
               <div class="modal__image-container">
                 <button
@@ -135,23 +161,30 @@
                     id="image-modal-close"
                   />
                 </button>
+
                 <img class="modal__preview-image" src=" " alt=" " />
+
                 <h3 class="modal__image-description"></h3>
               </div>
             </section>
+
             <p class="profile__description">Explorer</p>
           </div>
+
           <button
             class="profile__add-button"
             type="button"
             id="add-button"
           ></button>
         </section>
+
         <section class="cards">
           <template id="card-template">
             <article class="card" id="card-list">
               <img src=" " alt="" class="card__image" />
+
               <h2 class="card__description"></h2>
+
               <button class="card__like-button" type="button"></button>
 
               <button class="card__remove" type="button">
@@ -165,6 +198,7 @@
           </template>
         </section>
       </main>
+
       <footer class="footer">
         <p class="footer__copyright">&copy;2022 Around The U.S.</p>
       </footer>
