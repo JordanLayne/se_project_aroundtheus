@@ -42,6 +42,7 @@
                       type="text"
                       id="owner-name"
                       placeholder="Name"
+                      name="nameInput"
                       maxlength="40"
                       minlength="2"
                       required
@@ -55,13 +56,14 @@
                       id="owner-description"
                       maxlength="200"
                       minlength="2"
+                      name="descriptionInput"
                       required
                     />
                     <span
                       class="form__error"
                       id="owner-description-error"
                     ></span>
-                  </fieldset>
+                  
                   <button
                     class="form__save-button"
                     id="btn-submit"
@@ -74,7 +76,9 @@
                 <button
                   class="modal__close-button modal-btn-close"
                   type="button"
+                  id="edit-modal-close"
                 ></button>
+              </fieldset>
               </div>
             </div>
             <div class="modal modal_closed" id="cards-modal">
@@ -85,7 +89,7 @@
                     <label class="form__label-name"></label>
                     <input
                       id="card-name"
-                      name="name"
+                      name="title"
                       class="form__input"
                       type="text"
                       placeholder="Title"
@@ -99,11 +103,11 @@
                       class="form__input"
                       type="url"
                       placeholder="Image Link"
-                      name="link"
+                      name="imageLink"
                       id="card-link"
                       required
                     />
-                  </fieldset>
+                  
                   <span class="form__error" id="card-link-error"></span>
                   <button
                     class="form__save-button"
@@ -117,7 +121,9 @@
                 <button
                   class="modal__close-button modal-btn-close"
                   type="button"
+                  id="cards-modal-close"
                 ></button>
+              </fieldset>
               </div>
             </div>
             <section class="modal" id="image-modal">
@@ -130,9 +136,10 @@
                     src="./images/close-icon.svg"
                     alt="close"
                     class="modal__close-button-image"
+                    id="image-modal-close"
                   />
                 </button>
-                <img class="modal__preview-image" />
+                <img class="modal__preview-image" src=" " alt=" "/>
                 <h3 class="modal__image-description"></h3>
               </div>
             </section>
@@ -145,32 +152,27 @@
           ></button>
         </section>
         <section class="cards">
-          <ul class="cards__list page__section">
-            <template id="card-template">
-              <li class="card" id="card-list">
-                <div>
-                  <button class="card__remove" type="button">
-                    <img
-                      src="./images/Trash.svg"
-                      alt="trash icon"
-                      class="card__remove-button"
-                    />
-                  </button>
-                  <img src=" " alt="" class="card__image" />
-                  <div class="card__description">
-                    <h2 class="card__heading"></h2>
-                    <button class="card__like-button" type="button"></button>
-                  </div>
-                </div>
-              </li>
-            </template>
-          </ul>
+          <template id="card-template">
+            <article class="card" id="card-list">
+              <img src=" " alt="" class="card__image" />
+              <h2 class="card__description"></h2>
+              <button class="card__like-button" type="button"></button>
+
+              <button class="card__remove" type="button">
+                <img
+                  src="./images/Trash.svg"
+                  alt="trash icon"
+                  class="card__remove-button"
+                />
+              </button>
+            </article>
+          </template>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy;2022 Around The U.S.</p>
       </footer>
     </div>
-    <script type='module' src="./pages/index.js" defer></script>
+    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
