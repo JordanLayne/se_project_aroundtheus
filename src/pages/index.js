@@ -1,4 +1,4 @@
-import Card from "../scripts/components/Card.js";
+import Card from "../components/Card.js";
 import "./index.css";
 import {
   profileForm,
@@ -22,22 +22,25 @@ import {
   cards,
   initialCards,
   selectors,
-} from "../scripts/utils/constants.js";
-import PopupWithImage from "../scripts/components/PopupWithImage.js";
-import PopupWithForm from "../scripts/components/PopupWithForm.js";
-import Section from "../scripts/components/Section.js";
-import UserInfo from "../scripts/components/UserInfo.js";
-import FormValidator from "../scripts/components/FormValidator.js";
+} from "../utils/constants.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import FormValidator from "../components/FormValidator.js";
+
 const editFormElement = profileModal.querySelector(".form");
 const cardFormElement = cardsModal.querySelector(".form");
 const editFormValidator = new FormValidator(config, editFormElement);
 const cardFormValidator = new FormValidator(config, cardFormElement);
 const cardPreview = new PopupWithImage(selectors.imageModal);
-const user = new UserInfo({ name: profileName, job: profileJob });
+const user = new UserInfo({
+  nameSelector: ".profile__title",
+  jobSelector: ".profile__description",
+});
 
 const editPopupForm = new PopupWithForm(
   selectors.profileModal,
-
   (inputValues) => {
     user.setUserInfo(inputValues);
   }
