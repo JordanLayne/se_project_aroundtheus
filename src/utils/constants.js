@@ -14,12 +14,18 @@ export const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 export const cardsSubmit = document.querySelector("#cards-submit");
 export const cardAddButton = document.querySelector("#add-button");
+export const pfpModal = document.querySelector('#pfp-modal')
 export const imageModal = document.querySelector("#image-modal");
 export const cardPreviewImage = document.querySelector(".modal__preview-image");
 export const modalCardDescription = document.querySelector(
   ".modal__image-description"
 );
+export const profile = document.querySelector(".profile");
 export const cards = document.querySelector(".cards");
+export const editPfpButton =
+  profile.querySelector(".profile__image");
+export const confirmationModal = document.querySelector('#confirmation-modal')
+export const pfpButton = profile.querySelector('.profile__picture')
 export const selectors = {
   cardSection: "#card-list",
   cardSelector: "#card-template",
@@ -28,41 +34,10 @@ export const selectors = {
   imageModal: "#image-modal",
   profileModal: "#edit-modal",
   cardsModal: "#cards-modal",
+  profilePicture:"#pfp-modal",
+  confirmationModal: '#confirmation-modal'
 };
-export const initialCards = [
-  {
-    name: "Yosemite Valley",
 
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-
-  {
-    name: "Lake Louise",
-
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-
-  {
-    name: "Bald Mountains",
-
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-
-  {
-    name: "Latemar",
-
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
 export const config = {
   formSelector: ".form",
   inputSelector: ".form__input",

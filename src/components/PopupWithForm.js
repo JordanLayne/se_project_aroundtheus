@@ -7,7 +7,7 @@ export default class PopupWithForm extends Popup {
     this._submitFunction = submitFunction;
 
     this._form = this._popup.querySelector(".form");
-
+    this._saveButton = this._popup.querySelector(".form__save-button");
 
   }
 
@@ -21,10 +21,39 @@ export default class PopupWithForm extends Popup {
     return formValues;
   }
 
+setSubmitAction(action) {
+    this._submitFunction = action;
+  }
+
+  isLoading() {
+    this._saveButton.textContent = "Saving...";
+  }
+
+  finishLoading() {
+    setTimeout(() => {
+      this._saveButton.textContent = "Save";
+    }, 500);
+  }
   close = () => {
     this._form.reset();
 
     super.close();
+  };
+
+  open = (prefilled) => {
+    if (prefilled) {
+      this._inputList.forEach((input) => {
+        input.value = "Loading...";
+      });
+    }
+    super.open();
+  };
+
+  close = () => {
+    super.close();
+    setTimeout(() => {
+      this._form.reset();
+    }, 500);
   };
 
   setEventListeners() {

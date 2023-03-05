@@ -28,155 +28,215 @@
       </header>
 
       <main class="content">
-        <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="<%= require('./images/jacques-cousteau.svg')%>"
-            alt="Picture of Jacques Cousteau"
-          />
-
+        <section class="profile">
+          <div class="profile__image">
+            <img
+              class="profile__picture"
+              src="<%= require('./images/avataredit.svg')%>"
+              alt="Picture of Jacques Cousteau"
+            />
+          </div>
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
-
+            <h1 class="profile__title">Loading...</h1>
+            <p class="profile__description">Loading...</p>
             <button
               id="btn-edit"
               class="profile__edit-button"
               type="button"
             ></button>
+          </div>
+          <button
+          class="profile__add-button"
+          type="button"
+          id="add-button"
+        ></button>
 
-            <div class="modal modal_closed" id="edit-modal">
-              <div class="modal__container">
-                <h1 class="modal__title">Edit profile</h1>
+        </section>
 
-                <form class="form" id="form-profile" novalidate>
-                  <label class="form__label-name"></label>
+          <div class="modal modal_closed" id="edit-modal">
+            <div class="modal__container">
+              <h1 class="modal__title">Edit profile</h1>
 
-                  <input
-                    class="form__input form__input-title"
-                    type="text"
-                    id="owner-name"
-                    placeholder="Name"
-                    name="nameInput"
-                    maxlength="40"
-                    minlength="2"
-                    required
-                  />
+              <form class="form" id="form-profile" novalidate>
+                <label class="form__label-name"></label>
 
-                  <span class="form__error" id="owner-name-error"></span>
+                <input
+                  class="form__input form__input-title"
+                  type="text"
+                  id="owner-name"
+                  placeholder="Name"
+                  name="nameInput"
+                  maxlength="40"
+                  minlength="2"
+                  required
+                />
 
-                  <label class="form__label-description"></label>
+                <span class="form__error" id="owner-name-error"></span>
 
-                  <input
-                    class="form__input form__input-description"
-                    type="text"
-                    placeholder="Description"
-                    id="owner-description"
-                    maxlength="200"
-                    minlength="2"
-                    name="descriptionInput"
-                    required
-                  />
+                <label class="form__label-description"></label>
 
-                  <span class="form__error" id="owner-description-error"></span>
+                <input
+                  class="form__input form__input-description"
+                  type="text"
+                  placeholder="Description"
+                  id="owner-description"
+                  maxlength="200"
+                  minlength="2"
+                  name="descriptionInput"
+                  required
+                />
 
-                  <button
-                    class="form__save-button"
-                    id="btn-submit"
-                    type="submit"
-                    disabled
-                  >
-                    Save
-                  </button>
-                </form>
+                <span class="form__error" id="owner-description-error"></span>
 
                 <button
-                  class="modal__close-button modal-btn-close"
-                  type="button"
-                  id="edit-modal-close"
-                ></button>
-              </div>
-            </div>
-
-            <div class="modal modal_closed" id="cards-modal">
-              <div class="modal__container">
-                <h1 class="modal__title">New Place</h1>
-
-                <form class="form" id="cards-form">
-                  <label class="form__label-name"></label>
-
-                  <input
-                    id="card-name"
-                    name="title"
-                    class="form__input"
-                    type="text"
-                    placeholder="Title"
-                    minlength="1"
-                    maxlength="'30"
-                    required
-                  />
-
-                  <span class="form__error" id="card-name-error"></span>
-
-                  <label class="form__label-description"></label>
-
-                  <input
-                    class="form__input"
-                    type="url"
-                    placeholder="Image Link"
-                    name="imageLink"
-                    id="card-link"
-                    required
-                  />
-
-                  <span class="form__error" id="card-link-error"></span>
-
-                  <button
-                    class="form__save-button"
-                    id="cards-submit"
-                    type="submit"
-                    disabled
-                  >
-                    Save
-                  </button>
-                </form>
-
-                <button
-                  class="modal__close-button modal-btn-close"
-                  type="button"
-                  id="cards-modal-close"
-                ></button>
-              </div>
-            </div>
-
-            <section class="modal" id="image-modal">
-              <div class="modal__image-container">
-                <button
-                  class="modal__image-close-button modal-btn-close"
-                  type="button"
+                  class="form__save-button"
+                  id="btn-submit"
+                  type="submit"
+                  disabled
                 >
-                  <img
-                    src="<%= require('./images/close-icon.svg')%>"
-                    alt="close"
-                    class="modal__close-button-image"
-                    id="image-modal-close"
-                  />
+                  Save
                 </button>
+              </form>
 
-                <img class="modal__preview-image" src=" " alt=" " />
-
-                <h3 class="modal__image-description"></h3>
-              </div>
-            </section>
-
-            <p class="profile__description">Explorer</p>
+              <button
+                class="modal__close-button modal-btn-close"
+                type="button"
+                id="edit-modal-close"
+              ></button>
+            </div>
           </div>
 
-          <button
-            class="profile__add-button"
-            type="button"
-            id="add-button"
-          ></button>
-        </section>
+          <div class="modal modal_closed" id="cards-modal">
+            <div class="modal__container">
+              <h1 class="modal__title">New Place</h1>
+
+              <form class="form" id="cards-form">
+                <label class="form__label-name"></label>
+
+                <input
+                  id="card-name"
+                  name="title"
+                  class="form__input"
+                  type="text"
+                  placeholder="Title"
+                  minlength="1"
+                  maxlength="'30"
+                  required
+                />
+
+                <span class="form__error" id="card-name-error"></span>
+
+                <label class="form__label-description"></label>
+
+                <input
+                  class="form__input"
+                  type="url"
+                  placeholder="Image Link"
+                  name="imageLink"
+                  id="card-link"
+                  required
+                />
+
+                <span class="form__error" id="card-link-error"></span>
+
+                <button
+                  class="form__save-button"
+                  id="cards-submit"
+                  type="submit"
+                  disabled
+                >
+                  Save
+                </button>
+              </form>
+
+              <button
+                class="modal__close-button modal-btn-close"
+                type="button"
+                id="cards-modal-close"
+              ></button>
+            </div>
+          </div>
+
+          <section class="modal" id="image-modal">
+            <div class="modal__image-container">
+              <button
+                class="modal__image-close-button modal-btn-close"
+                type="button"
+              >
+                <img
+                  src="<%= require('./images/close-icon.svg')%>"
+                  alt="close"
+                  class="modal__close-button-image"
+                  id="image-modal-close"
+                />
+              </button>
+
+              <img class="modal__preview-image" src=" " alt=" " />
+
+              <h3 class="modal__image-description"></h3>
+            </div>
+          </section>
+
+         
+
+        <div class="modal modal_closed" id="pfp-modal">
+          <div class="modal__container">
+            <h1 class="modal__title">Change profile picture</h1>
+
+            <form class="form" id="pfp-form">
+              <label class="form__label-name"></label>
+
+              <label class="form__label-description"></label>
+
+              <input
+                class="form__input"
+                type="url"
+                placeholder="Image Link"
+                name="imageLink"
+                id="card-link"
+                required
+              />
+
+              <span class="form__error" id="card-link-error"></span>
+
+              <button
+                class="form__save-button"
+                id="cards-submit"
+                type="submit"
+                disabled
+              >
+                Save
+              </button>
+            </form>
+
+            <button
+              class="modal__close-button modal-btn-close"
+              type="button"
+              id="pfp-modal-close"
+            ></button>
+          </div>
+        </div>
+
+        <div class="modal modal_closed" id="confirmation-modal">
+          <div class="modal__container confirm-modal">
+            <h1 class="modal__title confirm-title">Are you sure?</h1>
+
+            <button
+              class="modal__save modal__confirm-button"
+              type="button"
+              aria-label="Confirm"
+              id="certaintyConfirm"
+            >
+              Yes
+            </button>
+
+            <button
+              class="modal__close-button modal-btn-close"
+              type="button"
+              id="confirmation-modal-close"
+            ></button>
+          </div>
+        </div>
 
         <section class="cards">
           <template id="card-template">
@@ -184,8 +244,9 @@
               <img src=" " alt="" class="card__image" />
 
               <h2 class="card__description"></h2>
-
-              <button class="card__like-button" type="button"></button>
+              <button class="card__like-button" type="button">
+                <p class="card__like-number"></p>
+              </button>
 
               <button class="card__remove" type="button">
                 <img

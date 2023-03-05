@@ -15,6 +15,10 @@
   height: 14px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
+  visibility: hidden;
+}
+.card__trash_opened{
+  visibility: visible;
 }
 .card__remove:hover{
   opacity: 0.5;
@@ -57,6 +61,14 @@
   border: none;
   transition: opacity 0.2s linear;
   
+}
+
+
+.card__like-number {
+  font-size: 13px;
+  line-height: 16px;
+  margin: 21px 1px 0 0;
+  padding: 0;
 }
 
 
