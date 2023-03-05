@@ -17,7 +17,7 @@ export default class PopupWithConfirmation extends Popup {
     finishLoading() {
       setTimeout(() => {
         this.confirmationBtn.textContent = "Yes";
-      }, 500);
+      }, 600);
     }
   
     setEventListeners() {

@@ -135,35 +135,47 @@ api.getData().then(([userData, cardsData]) => {
   );
 
   cardSection.renderItems(initialCards);
-});
 
 const confirmModal = new PopupWithConfirmation(selectors.confirmationModal);
 confirmModal.setEventListeners();
 
 const editPopupForm = new PopupWithForm(
   selectors.profileModal,
+
   (inputValues) => {
     editPopupForm.isLoading();
+
     api
+
       .setUserInfo(inputValues)
+
       .then((data) => {
-        user.setUserInfo(data);
+        userInfo.setUserInfo(data);
+
         editPopupForm.close();
       })
+
       .catch((error) => {
         console.log(error);
       })
+
       .finally(() => {
         editPopupForm.finishLoading();
       });
   }
 );
+
 editPopupForm.setEventListeners();
+
 editProfilePopup.addEventListener("click", () => {
   editPopupForm.open();
+
   const info = userInfo.getUserInfo();
+
   inputName.value = info.name;
+
   inputJob.value = info.job;
+
   editFormValidator.toggleButtonState();
 });
 const addPopupForm = new PopupWithForm(selectors.cardsModal, (inputValues) => {
@@ -208,7 +220,9 @@ const userPfpForm = new PopupWithForm(
       });
   }
 );
+
 userPfpForm.setEventListeners();
+
 editPfpButton.addEventListener("click", () => {
   userPfpForm.open();
   pfpFormValidator.toggleButtonState();
@@ -219,6 +233,7 @@ editPfpButton.addEventListener("mouseover", () => {
 
 editPfpButton.addEventListener("mouseout", () => {
   pfpButton.classList.remove("profile__picture_active");
+});
 });
 
 cardPreview.setEventListeners();
