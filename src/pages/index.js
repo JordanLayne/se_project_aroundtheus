@@ -207,7 +207,7 @@ const userPfpForm = new PopupWithForm(
     api
       .updatePfp(inputValues.avatar)
       .then((data) => {
-        user.setUserInfo(data);
+        userInfo.setUserInfo(data);
       })
       .catch((error) => {
         console.log(error);
