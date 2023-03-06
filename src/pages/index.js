@@ -79,7 +79,7 @@ api.getData().then(([userData, cardsData]) => {
             confirmationFunction: (cardId) => {
               confirmModal.open();
               confirmModal.setSubmitAction(() => {
-                confirmModal.isLoading();
+                confirmModal.renderLoading(true);
                 api
                   .deleteCard(cardId)
                   .then(() => {
@@ -87,7 +87,7 @@ api.getData().then(([userData, cardsData]) => {
                     confirmModal.close();
                   })
                   .finally(() => {
-                    confirmModal.finishLoading();
+                    confirmModal.renderLoading(false);
                   })
                   .catch((error) => {
                     console.log(error);
@@ -136,104 +136,108 @@ api.getData().then(([userData, cardsData]) => {
 
   cardSection.renderItems(initialCards);
 
-const confirmModal = new PopupWithConfirmation(selectors.confirmationModal);
-confirmModal.setEventListeners();
+  const confirmModal = new PopupWithConfirmation(selectors.confirmationModal);
+  confirmModal.setEventListeners();
 
-const editPopupForm = new PopupWithForm(
-  selectors.profileModal,
+  const editPopupForm = new PopupWithForm(
+    selectors.profileModal,
 
-  (inputValues) => {
-    editPopupForm.isLoading();
+    (inputValues) => {
+      editPopupForm.renderLoading(true);
 
-    api
+      api
 
-      .setUserInfo(inputValues)
+        .setUserInfo(inputValues)
 
-      .then((data) => {
-        userInfo.setUserInfo(data);
+        .then((data) => {
+          userInfo.setUserInfo(data);
 
-        editPopupForm.close();
-      })
+          editPopupForm.close();
+        })
 
-      .catch((error) => {
-        console.log(error);
-      })
+        .catch((error) => {
+          console.log(error);
+        })
 
-      .finally(() => {
-        editPopupForm.finishLoading();
-      });
-  }
-);
+        .finally(() => {
+          editPopupForm.renderLoading(false);
+        });
+    }
+  );
 
-editPopupForm.setEventListeners();
+  editPopupForm.setEventListeners();
 
-editProfilePopup.addEventListener("click", () => {
-  editPopupForm.open();
+  editProfilePopup.addEventListener("click", () => {
+    editPopupForm.open();
 
-  const info = userInfo.getUserInfo();
+    const info = userInfo.getUserInfo();
 
-  inputName.value = info.name;
+    inputName.value = info.name;
 
-  inputJob.value = info.job;
+    inputJob.value = info.job;
 
-  editFormValidator.toggleButtonState();
-});
-const addPopupForm = new PopupWithForm(selectors.cardsModal, (inputValues) => {
-  addPopupForm.isLoading();
-  api
-    .addNewCard(inputValues)
-    .then((data) => {
-      cardSection.addItem(data);
-      addPopupForm.close();
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-    .finally(() => {
-      addPopupForm.finishLoading();
-    });
-});
-addPopupForm.setEventListeners();
+    editFormValidator.toggleButtonState();
+  });
+  const addPopupForm = new PopupWithForm(
+    selectors.cardsModal,
+    (inputValues) => {
+      addPopupForm.renderLoading(true);
+      api
+        .addNewCard(inputValues)
+        .then((data) => {
+          cardSection.addItem(data);
+          addPopupForm.close();
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          addPopupForm.renderLoading(false);
+        });
+    }
+  );
+  addPopupForm.setEventListeners();
 
-cardAddButton.addEventListener("click", () => {
-  addPopupForm.open();
-  cardFormValidator.toggleButtonState();
-});
+  cardAddButton.addEventListener("click", () => {
+    addPopupForm.open();
+    cardFormValidator.toggleButtonState();
+  });
 
-const userPfpForm = new PopupWithForm(
-  selectors.profilePicture,
-  (inputValues) => {
-    userPfpForm.isLoading();
-    api
-      .updatePfp(inputValues.avatar)
-      .then((data) => {
-        userInfo.setUserInfo(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .then(() => {
-        userPfpForm.close();
-      })
-      .finally(() => {
-        userPfpForm.finishLoading();
-      });
-  }
-);
+  const userPfpForm = new PopupWithForm(
+    selectors.profilePicture,
+    (inputValues) => {
+      userPfpForm.renderLoading(true);
+      api
+        .updatePfp(inputValues.avatar)
+        .then((data) => {
+          userInfo.setUserInfo(data);
+        })
+        .then(() => {
+          userPfpForm.close();
+        })
+        .catch((error) => {
+          console.log(error);
+        })
 
-userPfpForm.setEventListeners();
+        .finally(() => {
+          userPfpForm.renderLoading(false);
+        });
+    }
+  );
 
-editPfpButton.addEventListener("click", () => {
-  userPfpForm.open();
-  pfpFormValidator.toggleButtonState();
-});
-editPfpButton.addEventListener("mouseover", () => {
-  pfpButton.classList.add("profile__picture_active");
-});
+  userPfpForm.setEventListeners();
 
-editPfpButton.addEventListener("mouseout", () => {
-  pfpButton.classList.remove("profile__picture_active");
-});
+  editPfpButton.addEventListener("click", () => {
+    userPfpForm.open();
+    pfpFormValidator.toggleButtonState();
+  });
+  editPfpButton.addEventListener("mouseover", () => {
+    pfpButton.classList.add("profile__picture_active");
+  });
+
+  editPfpButton.addEventListener("mouseout", () => {
+    pfpButton.classList.remove("profile__picture_active");
+  });
 });
 
 cardPreview.setEventListeners();

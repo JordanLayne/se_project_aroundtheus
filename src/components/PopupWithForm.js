@@ -25,14 +25,12 @@ setSubmitAction(action) {
     this._submitFunction = action;
   }
 
-  isLoading() {
-    this._saveButton.textContent = "Saving...";
-  }
-
-  finishLoading() {
-    setTimeout(() => {
+  renderLoading(isLoading) {
+    if (isLoading) {
+      this._saveButton.textContent = "Saving...";
+    } else {
       this._saveButton.textContent = "Save";
-    }, 500);
+    }
   }
   close = () => {
     this._form.reset();
@@ -49,20 +47,31 @@ setSubmitAction(action) {
     super.open();
   };
 
-  close = () => {
+  close(resetForm = true) {
     super.close();
-    setTimeout(() => {
-      this._form.reset();
-    }, 500);
-  };
+    if (resetForm) {
+      setTimeout(() => {
+        this._form.reset();
+      }, 500);
+    }
+  }
 
   setEventListeners() {
     this._popup.addEventListener("submit", (evt) => {
       evt.preventDefault();
 
-      this._submitFunction(this._getInputValues());
+      this.renderLoading(true);
 
-      this.close();
+      this._submitFunction(this._getInputValues())
+        .then(() => {
+          this.finishLoading();
+          this.close(true);
+        })
+        .catch((err) => {
+          console.error(err);
+          this.finishLoading();
+          this.close(false);
+        });
     });
 
     super.setEventListeners();

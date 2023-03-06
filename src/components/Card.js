@@ -1,12 +1,15 @@
 class Card {
-  constructor({
-    data,
-    handleImageClick,
-    handleDeleteConfirmation,
-    confirmationFunction,
-    handleLikeFunction,
-    onLoadLikeCheck,
-  }, templateSelector) {
+  constructor(
+    {
+      data,
+      handleImageClick,
+      handleDeleteConfirmation,
+      confirmationFunction,
+      handleLikeFunction,
+      onLoadLikeCheck,
+    },
+    templateSelector
+  ) {
     this.data = data;
     this.templateSelector = templateSelector;
     this.handleImageClick = handleImageClick;
@@ -49,7 +52,6 @@ class Card {
 
   generateCard(userId) {
     this.element = this._getTemplate();
-    this._setEventHandlers();
 
     this.cardImage = this.element.querySelector(".card__image");
     this.cardTitle = this.element.querySelector(".card__description");
@@ -68,7 +70,7 @@ class Card {
     this.cardImage.src = this.data.link;
     this.cardImage.alt = `Photo of ${this.data.name}`;
     this.cardTitle.textContent = this.data.name;
-
+    this._setEventHandlers();
     return this.element;
   }
 
@@ -77,13 +79,17 @@ class Card {
       this.handleImageClick({ title: this.data.name, image: this.data.link });
     });
 
-    this.element.querySelector(".card__like-button").addEventListener("click", () => {
-      this.handleLikeFunction(this);
-    });
+    this.element
+      .querySelector(".card__like-button")
+      .addEventListener("click", () => {
+        this.handleLikeFunction(this);
+      });
 
-    this.element.querySelector(".card__remove").addEventListener("click", () => {
-      this.confirmationFunction(this.data._id);
-    });
+    this.element
+      .querySelector(".card__remove")
+      .addEventListener("click", () => {
+        this.confirmationFunction(this.data._id);
+      });
   }
 }
 
