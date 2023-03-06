@@ -162,7 +162,7 @@ api.getData().then(([userData, cardsData]) => {
         .finally(() => {
           editPopupForm.renderLoading(false);
         });
-    }
+    },
   );
 
   editPopupForm.setEventListeners();
@@ -222,7 +222,7 @@ api.getData().then(([userData, cardsData]) => {
         .finally(() => {
           userPfpForm.renderLoading(false);
         });
-    }
+    },
   );
 
   userPfpForm.setEventListeners();

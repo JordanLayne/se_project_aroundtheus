@@ -10,7 +10,10 @@ export default class PopupWithConfirmation extends Popup {
     this._submitFunction = action;
   }
   renderLoading(isLoading) {
-    this.confirmationBtn.textContent = "Loading...";
+    if (isLoading){this.confirmationBtn.textContent = "Loading...";}
+    else{
+      this.confirmationBtn.textContent = "Yes"
+    }
   }
 
   setEventListeners() {
